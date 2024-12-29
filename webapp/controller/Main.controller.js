@@ -49,7 +49,7 @@ sap.ui.define([
                 var oData = oContext?.getObject();
                 
                 if (oData && oData.ParentNodeID === oParentNodeID) {
-                    this.ParentNodeID = oData.NodeID;
+                    this.expandTree(oData.NodeID);
                     
                     if (oRow.isExpandable() && !oRow.isExpanded()) {
                         oTable.expand(oRow.getIndex());

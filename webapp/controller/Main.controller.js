@@ -30,6 +30,25 @@ sap.ui.define([
                 var oData = oContext?.getObject();
                 
                 if (oData && oData.ParentNodeID === oParentNodeID) {
+                    this.expandTree(oData.NodeID);
+                    
+                    if (oRow.isExpandable() && !oRow.isExpanded()) {
+                        oTable.expand(oRow.getIndex());
+                    }
+                }
+            }, this);
+        },
+
+        expandTree: function(oParentNodeID) {
+            var oTable = this.getView().byId("treeTable");
+            var aRows = oTable.getRows();
+            // var oParentNodeID = this.ParentNodeID;
+            
+            aRows.forEach(function(oRow) {
+                var oContext = oRow.getBindingContext();
+                var oData = oContext?.getObject();
+                
+                if (oData && oData.ParentNodeID === oParentNodeID) {
                     this.ParentNodeID = oData.NodeID;
                     
                     if (oRow.isExpandable() && !oRow.isExpanded()) {
@@ -38,6 +57,8 @@ sap.ui.define([
                 }
             }, this);
         }
+
+
         
     });
 });

@@ -14,6 +14,27 @@
 	  "DrillState": "expanded"
 	},
 	{
+		"NodeID": 22,
+		"HierarchyLevel": 1,
+		"Description": "BOM_11",
+		"ParentNodeID": 1,
+		"DrillState": "leaf"
+	},
+	{
+		"NodeID": 222,
+		"HierarchyLevel": 1,
+		"Description": "BOM_111",
+		"ParentNodeID": 1,
+		"DrillState": "expanded"
+	},
+	{
+		"NodeID": 333,
+		"HierarchyLevel": 2,
+		"Description": "BOM_22",
+		"ParentNodeID": 222,
+		"DrillState": "leaf"
+	  },
+	{
 	  "NodeID": 3,
 	  "HierarchyLevel": 2,
 	  "Description": "BOM_2",

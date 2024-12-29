@@ -12,31 +12,35 @@ sap.ui.define([
 
         toggleOpenState: function(oEvent) {
             debugger;
+            this.expand = oEvent.getParameter("expanded");
+            if(this.expand) {
+                var oSelectedObj = oEvent.getParameter("rowContext").getObject();
 
-            var oSelectedObj = oEvent.getParameter("rowContext").getObject();
-
-            if(oSelectedObj.HierarchyLevel === 0) {
-                this.ParentNodeID = oSelectedObj.NodeID;
+                if(oSelectedObj.HierarchyLevel === 0) {
+                    this.ParentNodeID = oSelectedObj.NodeID;
+                }
             }
         },
 
         rowsUpdated: function(oEvent) {
-            var oTable = oEvent.getSource();
-            var aRows = oTable.getRows();
-            var oParentNodeID = this.ParentNodeID;
-            
-            aRows.forEach(function(oRow) {
-                var oContext = oRow.getBindingContext();
-                var oData = oContext?.getObject();
+            if(this.expand) {
+                var oTable = oEvent.getSource();
+                var aRows = oTable.getRows();
+                var oParentNodeID = this.ParentNodeID;
                 
-                if (oData && oData.ParentNodeID === oParentNodeID) {
-                    this.expandTree(oData.NodeID);
+                aRows.forEach(function(oRow) {
+                    var oContext = oRow.getBindingContext();
+                    var oData = oContext?.getObject();
                     
-                    if (oRow.isExpandable() && !oRow.isExpanded()) {
-                        oTable.expand(oRow.getIndex());
+                    if (oData && oData.ParentNodeID === oParentNodeID) {
+                        this.expandTree(oData.NodeID);
+                        
+                        if (oRow.isExpandable() && !oRow.isExpanded()) {
+                            oTable.expand(oRow.getIndex());
+                        }
                     }
-                }
-            }, this);
+                }, this);
+            }
         },
 
         expandTree: function(oParentNodeID) {

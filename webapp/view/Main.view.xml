@@ -1,9 +1,53 @@
 <mvc:View
     controllerName="com.ulli.materialbom.controller.Main"
     xmlns="sap.ui.table"
+    xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:core="sap.ui.core"
     xmlns:m="sap.m"
     xmlns:mvc="sap.ui.core.mvc">
+    <m:VBox >
 
+        <fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search=".onFilterChange" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad">
+            <fb:filterGroupItems>
+                <fb:FilterGroupItem name="SelectWeek" label="Select Week" groupName="Group1" visibleInFilterBar="true">
+                    <fb:control>
+                        <m:ComboBox id="idWeekSelect">
+                            <!-- Week options will be set dynamically in the controller -->
+                        </m:ComboBox>
+                    </fb:control>
+                </fb:FilterGroupItem>
+                <fb:FilterGroupItem name="OffsetFrom" label="Offset From" groupName="Group1" visibleInFilterBar="true">
+                    <fb:control>
+                        <m:ComboBox id="idOffsetFrom" >
+                            <m:items>
+                                <core:Item key="0" text="0"/>
+                                <core:Item key="1" text="1"/>
+                                <core:Item key="2" text="2"/>
+                                <core:Item key="3" text="3"/>
+                                <core:Item key="4" text="4"/>
+                                <core:Item key="5" text="5"/>
+                            </m:items>
+                        </m:ComboBox>
+                    </fb:control>
+                </fb:FilterGroupItem>
+                <fb:FilterGroupItem name="OffsetTo" label="Offset To" groupName="Group1" visibleInFilterBar="true">
+                    <fb:control>
+                        <m:ComboBox id="idOffsetTo">
+                            <m:items>
+                                <core:Item key="0" text="0"/>
+                                <core:Item key="1" text="1"/>
+                                <core:Item key="2" text="2"/>
+                                <core:Item key="3" text="3"/>
+                                <core:Item key="4" text="4"/>
+                                <core:Item key="5" text="5"/>
+                            </m:items>
+                        </m:ComboBox>
+                    </fb:control>
+                </fb:FilterGroupItem>
+            </fb:filterGroupItems>
+        </fb:FilterBar>
+    
+    
     <TreeTable
         id="treeTable"
         selectionMode="None"
@@ -38,21 +82,35 @@
             <Column>
                 <m:Label text="HierarchyLevel"/>
                 <template>
-                    <m:Text text="{HierarchyLevel}" wrapping="false" />
+                    <m:Text text="{Column1}" wrapping="false" />
                 </template>
             </Column>
 
             <Column>
                 <m:Label text="NodeID"/>
                 <template>
-                    <m:Text text="{NodeID}" wrapping="false" />
+                    <m:Text text="{Column2}" wrapping="false" />
                 </template>
             </Column>
 
             <Column>
-                <m:Label text="ParentNodeID"/>
+                <m:Label text="Column 3"/>
                 <template>
-                    <m:Text text="{ParentNodeID}" wrapping="false" />
+                    <m:Text text="{Column3}" wrapping="false" />
+                </template>
+            </Column>
+
+            <Column>
+                <m:Label text="Column 4"/>
+                <template>
+                    <m:Text text="{Column4}" wrapping="false" />
+                </template>
+            </Column>
+
+            <Column>
+                <m:Label text="Column 5"/>
+                <template>
+                    <m:Text text="{Column5}" wrapping="false" />
                 </template>
             </Column>
 
@@ -60,4 +118,5 @@
 
     </TreeTable>
 
+</m:VBox>
 </mvc:View>

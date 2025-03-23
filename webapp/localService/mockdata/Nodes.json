@@ -2,7 +2,7 @@
 	{
 	  "NodeID": 1,
 	  "HierarchyLevel": 0,
-	  "Description": "BOM",
+	  "Description": "M76543",
 	  "ParentNodeID": null,
 	  "DrillState": "expanded"
 	},
@@ -58,7 +58,7 @@
 	{
 	  "NodeID": 6,
 	  "HierarchyLevel": 0,
-	  "Description": "BOM",
+	  "Description": "M1234567",
 	  "ParentNodeID": null,
 	  "DrillState": "expanded"
 	},
@@ -107,7 +107,7 @@
 	{
 	  "NodeID": 13,
 	  "HierarchyLevel": 0,
-	  "Description": "BOM",
+	  "Description": "M9876543",
 	  "ParentNodeID": null,
 	  "DrillState": "expanded"
 	},
@@ -163,7 +163,7 @@
 	{
 	  "NodeID": 21,
 	  "HierarchyLevel": 0,
-	  "Description": "BOM",
+	  "Description": "M345678",
 	  "ParentNodeID": null,
 	  "DrillState": "expanded"
 	},
